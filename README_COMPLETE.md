@@ -390,8 +390,8 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 ## 📧 Contact
 
 **Author**: Amaury  
-**LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)  
-**Email**: your.email@polymtl.ca
+**LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/feed/)  
+**Email**: amaurytchoupe01@gmail.com
 
 For questions, suggestions, or collaborations:
 - Open an issue on GitHub
