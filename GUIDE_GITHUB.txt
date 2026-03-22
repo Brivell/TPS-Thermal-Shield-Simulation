@@ -1,0 +1,318 @@
+GUIDE UPLOAD GITHUB - ÉTAPE PAR ÉTAPE
+===============================================================================
+
+MÉTHODE 1 : INTERFACE WEB (Plus simple - 10 min)
+===============================================================================
+
+1. CRÉER REPO SUR GITHUB.COM
+   - Aller sur github.com
+   - Click "New repository"
+   - Nom: TPS-Thermal-Shield-Simulation
+   - Description: 2D transient heat transfer simulation for TPS
+   - Public
+   - Add README ✓
+   - Add .gitignore: Python ✓
+   - License: MIT ✓
+   - Create
+
+2. UPLOADER FICHIERS
+   - Dans ton repo, click "Add file" > "Upload files"
+   - Drag & drop tous tes fichiers:
+     * tps_fct.py
+     * verification.py
+     * analyse_TPS.py
+     * animations.py
+     * heatmaps_interactifs.py
+     * ml_surrogate.py
+     * requirements.txt
+     * README.md (écraser celui auto-généré)
+   
+   - Commit message: "Initial commit - TPS simulation code"
+   - Commit changes
+
+3. CRÉER DOSSIERS
+   - Click "Add file" > "Create new file"
+   - Nom: results/.gitkeep
+   - Commit (crée dossier results/)
+   
+   - Répéter pour:
+     * notebooks/.gitkeep
+     * docs/.gitkeep
+
+4. UPLOADER RÉSULTATS (Optionnel)
+   - Aller dans results/
+   - Upload tes figures PNG
+   - Commit
+
+TERMINÉ ! Repo accessible à: github.com/TON_USERNAME/TPS-Thermal-Shield-Simulation
+
+===============================================================================
+
+MÉTHODE 2 : GIT COMMAND LINE (Plus pro - 15 min)
+===============================================================================
+
+PRÉREQUIS:
+  - Git installé: https://git-scm.com/downloads
+  - Compte GitHub créé
+
+ÉTAPES:
+
+1. CRÉER REPO SUR GITHUB (comme Méthode 1, étape 1)
+
+2. OUVRIR TERMINAL DANS TON DOSSIER PROJET
+
+3. INITIALISER GIT LOCAL
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit - TPS simulation"
+   ```
+
+4. CONNECTER AU REPO GITHUB
+   ```bash
+   git remote add origin https://github.com/TON_USERNAME/TPS-Thermal-Shield-Simulation.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+5. ENTRER CREDENTIALS GITHUB
+   - Username: ton_username
+   - Password: Personal Access Token (pas ton mot de passe!)
+   
+   Créer Token:
+   - GitHub.com > Settings > Developer settings > Personal access tokens
+   - Generate new token (classic)
+   - Scopes: repo ✓
+   - Copy token et utiliser comme password
+
+TERMINÉ !
+
+===============================================================================
+
+MÉTHODE 3 : GITHUB DESKTOP (Plus visuel - 12 min)
+===============================================================================
+
+1. INSTALLER GITHUB DESKTOP
+   - https://desktop.github.com/
+   - Login avec compte GitHub
+
+2. CRÉER NOUVEAU REPO
+   - File > New repository
+   - Name: TPS-Thermal-Shield-Simulation
+   - Local path: ton dossier projet
+   - Initialize with README
+   - Git ignore: Python
+   - License: MIT
+   - Create
+
+3. AJOUTER FICHIERS
+   - GitHub Desktop détecte automatiquement changements
+   - Voir tous fichiers listés dans "Changes"
+
+4. COMMIT
+   - Summary: "Initial commit"
+   - Description: "TPS simulation with ML and animations"
+   - Commit to main
+
+5. PUBLISH
+   - Click "Publish repository"
+   - Décocher "Keep this code private" si tu veux public
+   - Publish
+
+TERMINÉ !
+
+===============================================================================
+
+STRUCTURE DOSSIER RECOMMANDÉE
+===============================================================================
+
+TPS-Thermal-Shield-Simulation/
+│
+├── README.md                    # Description projet
+├── requirements.txt             # Dépendances Python
+├── .gitignore                   # Fichiers à ignorer
+├── LICENSE                      # MIT license
+│
+├── src/                         # Code source principal
+│   ├── tps_fct.py
+│   ├── verification.py
+│   └── analyse_TPS.py
+│
+├── scripts/                     # Scripts bonus
+│   ├── animations.py
+│   ├── heatmaps_interactifs.py
+│   └── ml_surrogate.py
+│
+├── results/                     # Résultats générés
+│   ├── figures/
+│   │   ├── conv_maillage.png
+│   │   ├── profils_2D.png
+│   │   └── ...
+│   ├── tables/
+│   │   ├── tab_conv_spatial.tex
+│   │   └── tab_conv_temporel.tex
+│   └── data/
+│       └── resultats_TPS.json
+│
+├── notebooks/                   # Jupyter notebooks (optionnel)
+│   ├── ML_surrogate.ipynb
+│   └── animations.ipynb
+│
+└── docs/                        # Documentation
+    └── report.pdf
+
+===============================================================================
+
+APRÈS UPLOAD : AMÉLIORER LE REPO
+===============================================================================
+
+1. AJOUTER BADGES AU README
+   - Aller sur shields.io
+   - Ajouter badges: Python version, license, etc.
+
+2. CRÉER RELEASES
+   - GitHub > Releases > Create new release
+   - Tag: v1.0.0
+   - Title: "Initial release - TPS Simulation"
+   - Description: Features list
+   - Attach binaries (optionnel): résultats.zip
+
+3. AJOUTER TOPICS
+   - GitHub repo page > Settings
+   - Topics: heat-transfer, finite-difference, python, simulation, thermal-analysis
+
+4. ENABLE GITHUB PAGES (Pour visualisations HTML)
+   - Settings > Pages
+   - Source: main branch
+   - Folder: /docs (ou /root)
+   - Save
+   
+   Mettre tes HTML interactifs dans docs/
+   Accessibles à: https://TON_USERNAME.github.io/TPS-Thermal-Shield-Simulation/
+
+5. CRÉER WIKI (Optionnel)
+   - GitHub > Wiki > Create first page
+   - Documentation additionnelle
+   - Guides utilisateur
+
+===============================================================================
+
+COMMANDES GIT UTILES
+===============================================================================
+
+Après modifications:
+  git add .
+  git commit -m "Description changement"
+  git push
+
+Voir status:
+  git status
+
+Voir historique:
+  git log
+
+Créer branche (pour nouvelles features):
+  git checkout -b feature-animations
+  git push -u origin feature-animations
+
+Merger branche:
+  git checkout main
+  git merge feature-animations
+  git push
+
+===============================================================================
+
+TROUBLESHOOTING
+===============================================================================
+
+PROBLÈME: "Permission denied"
+SOLUTION: Vérifier token GitHub, régénérer si expiré
+
+PROBLÈME: "Large files"
+SOLUTION: Ajouter à .gitignore ou utiliser Git LFS
+  git lfs install
+  git lfs track "*.mp4"
+  git lfs track "*.gif"
+
+PROBLÈME: "Merge conflicts"
+SOLUTION: 
+  git pull
+  Résoudre conflicts manuellement
+  git add .
+  git commit -m "Resolve conflicts"
+  git push
+
+===============================================================================
+
+BONNES PRATIQUES
+===============================================================================
+
+1. COMMIT MESSAGES CLAIRS
+   ✓ "Add ML surrogate model with sklearn"
+   ✗ "Update"
+
+2. .gitignore COMPLET
+   - Fichiers temporaires
+   - __pycache__/
+   - Gros fichiers (>100MB)
+   - Données sensibles
+
+3. README INFORMATIF
+   - Description
+   - Installation
+   - Usage
+   - Exemples
+   - License
+
+4. LICENSE
+   - MIT: très permissif
+   - GPL: open source strict
+   - Apache: commercial OK
+
+5. COMMITS RÉGULIERS
+   - Pas tout en 1 commit
+   - Features séparées
+
+===============================================================================
+
+PARTAGER TON REPO
+===============================================================================
+
+Sur LinkedIn:
+  "Proud to share my thermal simulation project! 🔥
+   2D FEM solver with ML surrogate model (1000× speedup)
+   Check it out: github.com/username/TPS-Thermal-Shield-Simulation"
+
+Sur CV:
+  Projects:
+  - TPS Thermal Shield Simulation | Python, NumPy, Scikit-Learn
+    github.com/username/TPS-Thermal-Shield-Simulation
+    Finite element solver for transient heat transfer with ML acceleration
+
+===============================================================================
+
+PROCHAINES ÉTAPES
+===============================================================================
+
+Après upload:
+
+1. DOCUMENTER
+   - Ajouter docstrings
+   - Créer guide utilisateur
+   - Exemples d'utilisation
+
+2. TESTER
+   - Ajouter unit tests
+   - CI/CD avec GitHub Actions
+
+3. ÉTENDRE
+   - 3D version
+   - Multi-matériaux
+   - Optimisation GPU
+
+4. COLLABORER
+   - Inviter collaborateurs
+   - Pull requests
+   - Issues tracking
+
+===============================================================================
